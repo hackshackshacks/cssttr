@@ -38,19 +38,27 @@ body > nav ul {
   display: flex;
   color: var(--dBlue);
 }
-body > nav ul li a{
-  height: 100%;
-  width: 100%;
+body > nav ul li a {
+  display: block;
   text-decoration: none;
   font-weight: bold;
   color: inherit;
+  padding: 1em 2em;
 }
 body > nav ul li{
-  padding: 1em 2em;
-  border-bottom: 2px solid transparent;
+  position: relative;
 }
-body > nav ul li:hover {
-  border-bottom: 2px solid var(--dBlue);
+body > nav ul li:after {
+  position: absolute;
+  height: 2px;
+  background: var(--dBlue);
+  width: 0;
+  content: '';
+  bottom: 0;
+  transition: var(--baseTime);
+}
+body > nav ul li:hover:after{
+  width: 100%;
 }
 /* Form styles */
 a, label {
