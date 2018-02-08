@@ -12,6 +12,16 @@
 
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Login</a></li>
+            <li><a href="#">item 2</a></li>
+            <li><a href="#">item 3</a></li>
+            <li><a href="#">item 4</a></li>
+            <li><a href="#">item 5</a></li>
+        </ul>
+    </nav>
     <!-- Login component -->
     <form action="/" method="post">
         <fieldset>
@@ -23,7 +33,9 @@
             <input type="password" id="field-password" name="field-password" placeholder="Password" required>
 
             <div>
-                <label for="field-stay-logged-in"><input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">Stay logged in</label>
+                <input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
+                <label for="field-stay-logged-in">Stay logged in</label>
+                
                 <a href="/">Forgot password?</a>
             </div>
             <button type="submit">Log in</button>
