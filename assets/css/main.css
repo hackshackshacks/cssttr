@@ -3,6 +3,7 @@
   --dGrey: rgb(78, 78, 78);
   --lGrey: #4e4e4e80;
   --dBlue: #59A0D9;
+  --vdBlue: #005980;
   --lBlue: #00B1FF;
   --offBlue: rgba(89, 160, 217, 0.1);
   --lGreen: #54DB00;
@@ -15,6 +16,10 @@
   --muli: 'Muli', sans-serif;
   --shadow: 0 0 6px rgba(0,0,0,0.16);
   --baseTime: 300ms;
+}
+@font-face {
+  font-family: Ampersand;
+  src: url('../fonts/MuktaMahee-SemiBold.ttf');
 }
 body {
   padding: 0;
@@ -70,6 +75,60 @@ body > nav ul li:hover:after, body > nav ul li:focus-within:after, body > nav ul
 }
 body > nav ul li a:focus {
   outline: none;
+}
+
+/* Modal styles */
+body > div {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+body > div:target {
+  display: grid;
+  place-items: center center;
+}
+body > div > a {
+  position: fixed;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+/* modal content */
+body > div > div {
+  background: var(--white);
+  max-width: 360px;
+  border-radius: 10px;
+}
+body > div > div header {
+  background: linear-gradient(45deg, var(--lBlue), var(--vdBlue));
+  width: 120%;
+  transform: translate(-10%, -10%) rotate(355deg);
+  box-sizing: border-box;
+  padding: 2em 4.5em;
+  border-radius: 10px;
+}
+body > div > div header h2 {
+  text-align: center;
+  transform: rotate(5deg);
+  color: var(--white);
+  font-weight: 900;
+}
+body > div > div form {
+  transform: translateY(-2.5rem);
+}
+body > div > div form ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+body > div > div form ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 4em;
 }
 /* Form styles */
 a, label {
@@ -382,6 +441,7 @@ body > main article a {
 body > main article h2 {
   margin: 0;
   color: white;
+  font-family: Ampersand, var(--muli);
 }
 body > main article a:after {
   content: '';
