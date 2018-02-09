@@ -64,7 +64,7 @@ body > nav ul li:after {
   bottom: 0;
   transition: var(--baseTime);
 }
-body > nav ul li:hover:after, body > nav ul li:focus-within:after{
+body > nav ul li:hover:after, body > nav ul li:focus-within:after, body > nav ul li[aria-active="active"]:after {
   width: 100%;
 }
 body > nav ul li a:focus {
@@ -366,6 +366,7 @@ body > main article a {
   padding-bottom: 0.5em;
   padding-left: 0.5em;
   text-decoration: none;
+  will-change: transform;
 }
 body > main article h2 {
   margin: 0;
