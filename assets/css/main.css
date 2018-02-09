@@ -16,10 +16,6 @@
   --shadow: 0 0 6px rgba(0,0,0,0.16);
   --baseTime: 300ms;
 }
-@font-face {
-  font-family: Ampersand;
-  src: local('Goudy Old Style');
-}
 body {
   padding: 0;
   margin: 0;
@@ -386,9 +382,6 @@ body > main article a {
 body > main article h2 {
   margin: 0;
   color: white;
-}
-body > main article h2 span {
-  font-family: 'Ampersand';
 }
 body > main article a:after {
   content: '';
