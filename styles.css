@@ -308,6 +308,7 @@ body > section > div:nth-child(2) ol li:last-child {
 }
 
 /* Gallery */
+/* Header */
 body > header {
   max-width: 80%;
   margin: 2em auto;
@@ -327,6 +328,7 @@ body > header img {
 body > header div {
   padding: 2em 1em;
 }
+/* Main */
 body > main {
   max-width: 80%;
   margin: 0 auto;
@@ -363,12 +365,13 @@ body > main article a {
   align-items: flex-end;
   padding-bottom: 0.5em;
   padding-left: 0.5em;
+  text-decoration: none;
 }
 body > main article h2 {
   margin: 0;
   color: white;
 }
-body > main article h2:after {
+body > main article a:after {
   content: '';
   position: absolute;
   top: 0;
