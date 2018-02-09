@@ -11,6 +11,7 @@
   --font-size1: 3em;
   --font-size2: 1em;
   --font-size3: 0.75em;
+  --smaller1: 2em;
   --muli: 'Muli', sans-serif;
   --shadow: 0 0 6px rgba(0,0,0,0.16);
   --baseTime: 300ms;
@@ -327,6 +328,16 @@ body > header img {
 }
 body > header div {
   padding: 2em 1em;
+}
+@media (max-width: 1400px) {
+  body > header div h1 {
+    font-size: var(--smaller1);
+  }
+}
+@media (max-width: 1000px) {
+  body > header {
+    grid-template-columns: 1fr;
+  }
 }
 /* Main */
 body > main {
