@@ -39,7 +39,7 @@
       <img src="assets/images/cow1.png" alt="">
       <figcaption>Photo by Owler Thor, Sheffield, United Kingdown</figcaption>
     </figure>
-    
+
     <div>
       <h1>A gallery of cows I came across during my trip to the UK</h1>
       <cite>- Owler Thor</cite>
@@ -65,7 +65,7 @@
       </a>
     </article>
   </main>
-  <a href="#modal" class="btn">Open modal</a>
+  <a href="#modal">Feedback</a>
   <!-- modal -->
   <div id="modal">
     <a href="#"></a>
@@ -76,15 +76,31 @@
       </header>
       <form action="#">
         <ul>
-          <li><a href="#">😢</a></li>
-          <li><a href="#">😞</a></li>
-          <li><a href="#">😐</a></li>
-          <li><a href="#">😃</a></li>
-          <li><a href="#">🤩</a></li>
-       </ul>
-       <input type="submit">
+          <li>
+            <input type="radio" name="rating" id="rating-0">
+            <label for="rating-0">😢</label>
+          </li>
+          <li>
+            <input type="radio" name="rating" id="rating-1">
+            <label for="rating-1">😞</label>
+          </li>
+          <li>
+            <input type="radio" name="rating" id="rating-2">
+            <label for="rating-2">😐</label>
+          </li>
+          <li>
+            <input type="radio" name="rating" id="rating-3">
+            <label for="rating-3">😃</label>
+          </li>
+          <li>
+            <input type="radio" name="rating" id="rating-4">
+            <label for="rating-4">🤩</label>
+          </li>
+        </ul>
+        <input type="submit">
       </form>
     </div>
   </div>
 </body>
+
 </html>
