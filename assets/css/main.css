@@ -79,23 +79,40 @@ body > nav ul li a:focus {
 
 /* Modal styles */
 body > div {
-  display: none;
+  height: 100%;
+  width: 100%;
+  top: -999;
+  left: -999;
+  opacity: 0;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   background: rgba(0, 0, 0, 0.6);
-}
-body > div:target {
   display: grid;
   place-items: center center;
+  transition: var(--baseTime);
+}
+body > div:target {
+  opacity: 1;
+  top: 0;
+  left: 0;
 }
 body > div > a {
   position: fixed;
   z-index: -1;
   height: 100%;
   width: 100%;
+}
+/* modal trigger */
+body > a {
+  position: fixed;
+  right: 0;
+  top: 70%;
+  background: linear-gradient(45deg, var(--lBlue), var(--vdBlue));
+  padding: 1em 1.5em;
+  border-radius: 10px 10px 0 0;
+  transform: rotate(-90deg) translatey(-50%);
+  transform-origin: right;
+  color: var(--white);
+  text-decoration: none;
 }
 /* modal content */
 body > div > div {
@@ -118,17 +135,71 @@ body > div > div header h2 {
   font-weight: 900;
 }
 body > div > div form {
-  transform: translateY(-2.5rem);
+  position: relative;
+}
+body > div > div form fieldset {
+  padding: 0;
 }
 body > div > div form ul {
   list-style: none;
   display: grid;
+  grid-gap: 1.8em;
   grid-template-columns: repeat(5, 1fr);
+  position: absolute;
+  top: -2.5rem;
+  transform: translatex(-10%);
 }
-body > div > div form ul li a{
+body > div > div form ul li input[type="radio"] {
+  position: absolute;
+  left: -999;
+  top: -999;
+  opacity: 0;
+}
+body > div > div form ul li input[type="radio"]:checked + label {
+  filter: brightness(1);
+}
+body > div > div form ul li label{
   text-decoration: none;
   color: black;
   font-size: 4em;
+  filter: brightness(.4);
+  position: relative;
+  transition: var(--baseTime);
+}
+body > div > div form ul li label:before {
+  content:'';
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translatex(-50%);
+  font-size: 0.1875em;
+  font-weight: 700;
+  color: var(--white);
+  word-wrap: nowrap;
+}
+body > div > div form ul li label:hover, body > div > div form ul li input:focus + label { /* TODO: fix focus state */
+  filter: brightness(1);
+}
+body > div > div form ul li:nth-child(1) label:hover:before, body > div > div form ul li:nth-child(1) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(1) input[type="radio"]:focus + label:before {
+  content: 'Terrible';
+}
+body > div > div form ul li:nth-child(2) label:hover:before, body > div > div form ul li:nth-child(2) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(2) input[type="radio"]:focus + label:before  {
+  content: 'Bad';
+}
+body > div > div form ul li:nth-child(3) label:hover:before, body > div > div form ul li:nth-child(3) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(3) input[type="radio"]:focus + label:before  {
+  content: 'Meh';
+}
+body > div > div form ul li:nth-child(4) label:hover:before, body > div > div form ul li:nth-child(4) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(4) input[type="radio"]:focus + label:before  {
+  content: 'Good';
+}
+body > div > div form ul li:nth-child(5) label:hover:before, body > div > div form ul li:nth-child(5) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(5) input[type="radio"]:focus + label:before  {
+  content: 'Amazing';
+}
+body > div > div form input[type="submit"] {
+  margin: 2rem auto 0 50%;
+  transform: translate(-50%, 50%);
+  width: auto;
+  padding: 1em 2.5em;
 }
 /* Form styles */
 a, label {
@@ -211,10 +282,10 @@ input:focus {
   outline: none;
 }
 input[type='email']:focus, input[type='password']:focus {
-  border-color: var(--dGrey);
+  border-color: var(--dBlue);
   border-width: 2px;
 }
-button:hover {
+button:hover, button:focus, input[type="submit"]:hover, input[type="submit"]:focus {
   background: var(--lBlue);
 }
 fieldset a:hover {
@@ -249,28 +320,27 @@ body > section > div header {
   background: var(--white);
   padding: 0 1em;
 }
-/* body > section > div header h2 {
-  position: relative;
-  display: block;
-}
-body > section > div header h2:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content: '';
-  background: var(--lGreen);
-  height: 0.6rem;
-  width: 0.6rem;
-  border-radius: 100px;
-} */
-
 /* left block */
 body > section > div:nth-child(1) ol {
   padding: 0 4em;
   margin: 0;
   height: 90%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-content: end;
+  overflow: hidden;
+}
+body > section > div:nth-child(1) ol li {
+  transform: translateY(-100vh);
+  animation: dropIn var(--baseTime) ease-in forwards;
+  animation-delay: calc(var(--baseTime) * 3);
+}
+body > section > div:nth-child(1) ol li:nth-child(2) {
+  animation-delay: calc(var(--baseTime) * 2);
+}
+body > section > div:nth-child(1) ol li:nth-child(3) {
+  animation-delay: var(--baseTime);
 }
 body > section > div ol li {
   background: var(--offBlue);
@@ -452,4 +522,16 @@ body > main article a:after {
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   z-index: -1;
+}
+/* animations */
+@keyframes dropIn {
+  0% {
+    transform: translateY(-100vh);
+  }
+  80% {
+    transform: translateY(2.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
