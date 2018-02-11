@@ -26,6 +26,7 @@ body {
   margin: 0;
   font-family: var(--muli);
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 ol, ul {
   list-style: none;
@@ -76,7 +77,26 @@ body > nav ul li:hover:after, body > nav ul li:focus-within:after, body > nav ul
 body > nav ul li a:focus {
   outline: none;
 }
-
+body > nav > a, body > nav ul > a {
+  display: none;
+}
+@media (max-width: 600px) {
+  body > nav > a, body > nav ul > a {
+    display: block;
+  }
+  body > nav ul {
+    display: none;
+  }
+  body > nav ul:target {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: grid;
+    place-items: center center;
+  }
+}
 /* Modal styles */
 body > div {
   height: 100%;
@@ -396,6 +416,7 @@ body > section > div footer a {
   left: 0.6em;
   top: 50%;
   transform: translateY(-50%);
+  text-decoration: none;
 }
 body > section > div footer button, body > section > div footer textarea {
   padding: 0.5em;
