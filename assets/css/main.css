@@ -36,6 +36,9 @@ body {
 h1::selection, h2::selection, h3::selection, p::selection, label::selection, a::selection, li::selection {
   background: var(--slBlue);
 }
+p {
+  margin: 0;
+}
 ol, ul {
   list-style: none;
   padding: 0;
@@ -46,9 +49,13 @@ h1 {
   font-weight: 900;
   color: var(--dGrey);
 }
+label {
+  user-select: none;
+}
 /* Nav styles */
 body > nav {
-  width: 100%;
+  width: 80%;
+  margin: 2em auto 0 auto;
   background: var(--white);
   box-shadow: var(--shadow);
   box-sizing: border-box;
@@ -63,9 +70,11 @@ body > nav ul {
 body > nav ul li a {
   display: block;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
-  padding: 1em 2em;
+  padding: 1.5em 2.5em;
+  color: var(--dGrey);
+  transition: 200ms;
 }
 body > nav ul li{
   position: relative;
@@ -79,11 +88,17 @@ body > nav ul li:after {
   bottom: 0;
   transition: var(--baseTime);
 }
-body > nav ul li:hover:after, body > nav ul li:focus-within:after, body > nav ul li[aria-active="active"]:after {
+body > nav ul li:hover:after, body > nav ul li:focus-within:after {
   width: 100%;
 }
-body > nav ul li a:focus {
+body > nav ul li a:focus, body > nav ul li a:hover {
   outline: none;
+  font-weight: 600;
+  color: var(--dBlue);
+}
+body > nav ul li[aria-active="active"] a {
+  font-weight: 900;
+  color: var(--dBlue);
 }
 body > nav > a, body > nav ul > a {
   display: none;
@@ -142,6 +157,7 @@ body > a {
   color: var(--white);
   text-decoration: none;
   font-weight: 700;
+  animation: slideIn 2s forwards;
 }
 /* modal content */
 body > div > div {
@@ -214,19 +230,29 @@ body > div > div form ul li label:before {
 body > div > div form ul li label:hover, body > div > div form ul li input:focus + label { /* TODO: fix focus state */
   filter: brightness(1);
 }
-body > div > div form ul li:nth-child(1) label:hover:before, body > div > div form ul li:nth-child(1) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(1) input[type="radio"]:focus + label:before {
+body > div > div form ul li:nth-child(1) label:hover:before, 
+body > div > div form ul li:nth-child(1) input[type="radio"]:checked + label:before, 
+body > div > div form ul li:nth-child(1) input[type="radio"]:focus + label:before {
   content: 'Terrible';
 }
-body > div > div form ul li:nth-child(2) label:hover:before, body > div > div form ul li:nth-child(2) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(2) input[type="radio"]:focus + label:before  {
+body > div > div form ul li:nth-child(2) label:hover:before, 
+body > div > div form ul li:nth-child(2) input[type="radio"]:checked + label:before, 
+body > div > div form ul li:nth-child(2) input[type="radio"]:focus + label:before  {
   content: 'Bad';
 }
-body > div > div form ul li:nth-child(3) label:hover:before, body > div > div form ul li:nth-child(3) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(3) input[type="radio"]:focus + label:before  {
+body > div > div form ul li:nth-child(3) label:hover:before, 
+body > div > div form ul li:nth-child(3) input[type="radio"]:checked + label:before, 
+body > div > div form ul li:nth-child(3) input[type="radio"]:focus + label:before  {
   content: 'Meh';
 }
-body > div > div form ul li:nth-child(4) label:hover:before, body > div > div form ul li:nth-child(4) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(4) input[type="radio"]:focus + label:before  {
+body > div > div form ul li:nth-child(4) label:hover:before, 
+body > div > div form ul li:nth-child(4) input[type="radio"]:checked + label:before, 
+body > div > div form ul li:nth-child(4) input[type="radio"]:focus + label:before  {
   content: 'Good';
 }
-body > div > div form ul li:nth-child(5) label:hover:before, body > div > div form ul li:nth-child(5) input[type="radio"]:checked + label:before, body > div > div form ul li:nth-child(5) input[type="radio"]:focus + label:before  {
+body > div > div form ul li:nth-child(5) label:hover:before, 
+body > div > div form ul li:nth-child(5) input[type="radio"]:checked + label:before, 
+body > div > div form ul li:nth-child(5) input[type="radio"]:focus + label:before  {
   content: 'Amazing';
 }
 body > div > div form input[type="submit"] {
@@ -266,6 +292,32 @@ fieldset > div {
 }
 fieldset div a {
   margin-left: auto;
+}
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0.5em;
+  align-items: center;
+}
+input[type="checkbox"] + label:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  box-sizing: border-box;
+  display: block;
+  background: var(--lGrey);
+  border-radius: 2px;
+}
+input[type="checkbox"]:checked + label:before {
+  content: '';
+  font-family: FontAwesome;
+  font-size: 0.5em;
+  background: var(--lBlue);
+  color: var(--white);
 }
 fieldset button {
   margin-top: 2em;
@@ -334,7 +386,7 @@ body > section {
   margin: 0 auto;
   grid-gap: 1em;
   height: 70vh;
-  margin-top: 10vh;
+  margin-top: 1em;
 }
 body > section > div {
   box-shadow: var(--shadow);
@@ -645,4 +697,16 @@ nav + nav ol li:nth-child(4):after, nav + nav ol li:nth-child(3):after {
   100% {
     transform: translateY(0);
   }
+}
+@keyframes slideIn {
+  0% {
+    right: -100px;
+  }
+  90% {
+    right: -100px;
+  }
+  100% {
+    right: 0;
+  }
+
 }
