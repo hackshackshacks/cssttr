@@ -2,6 +2,7 @@
   --test: magenta;
   --dGrey: rgb(78, 78, 78);
   --lGrey: #4e4e4e80;
+  --slGrey: #e4e4e4;
   --dBlue: #59A0D9;
   --vdBlue: #005980;
   --lBlue: #00B1FF;
@@ -59,6 +60,7 @@ body > nav {
   background: var(--white);
   box-shadow: var(--shadow);
   box-sizing: border-box;
+  position: relative;
 }
 body > nav ul {
   margin: 0;
@@ -100,10 +102,28 @@ body > nav ul li[aria-active="active"] a {
   font-weight: 900;
   color: var(--dBlue);
 }
-body > nav > a, body > nav ul > a {
+body > nav > a:nth-child(1), body > nav ul > a {
   display: none;
 }
-@media (max-width: 600px) {
+body > nav > a:nth-child(2) {
+  position: absolute;
+  opacity: 0;
+  left: -999px;
+  top: -999px;
+  width: 4em;
+  color: var(--dBlue);
+  font-weight: 700;
+  transition: opacity var(--baseTime);  
+}
+body > nav > a:nth-child(2):focus {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -5em;
+  opacity: 1;
+  outline: none;
+}
+@media (max-width: 37em) {
   body > nav > a, body > nav ul > a {
     display: block;
   }
@@ -144,6 +164,20 @@ body > div > a {
   height: 100%;
   width: 100%;
 }
+body > div > a:after {
+  content: '';
+  transform: rotate(45deg);
+  font-family: FontAwesome;
+  font-size: 2em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  color: white;
+}
+body > div > a:focus:after {
+  color: var(--dBlue);
+  animation: pop 2s infinite;
+}
 /* modal trigger */
 body > a {
   position: fixed;
@@ -158,6 +192,10 @@ body > a {
   text-decoration: none;
   font-weight: 700;
   animation: slideIn 2s forwards;
+}
+body > a:focus, body > a:hover {
+  outline: none;
+  background: var(--dBlue);
 }
 /* modal content */
 body > div > div {
@@ -294,7 +332,9 @@ fieldset div a {
   margin-left: auto;
 }
 input[type="checkbox"] {
-  display: none;
+  position: absolute;
+  top: -999px;
+  left: -999px;
 }
 input[type="checkbox"] + label {
   display: grid;
@@ -304,20 +344,23 @@ input[type="checkbox"] + label {
 }
 input[type="checkbox"] + label:before {
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 0.8rem;
+  height: 0.8rem;
   padding: 1px;
   box-sizing: border-box;
   display: block;
-  background: var(--lGrey);
+  background: var(--slGrey);
   border-radius: 2px;
 }
 input[type="checkbox"]:checked + label:before {
   content: '';
   font-family: FontAwesome;
-  font-size: 0.5em;
-  background: var(--lBlue);
+  font-size: 0.65rem;
+  background: var(--dBlue);
   color: var(--white);
+}
+input[type="checkbox"]:focus + label {
+  color: var(--dGrey);
 }
 fieldset button {
   margin-top: 2em;
@@ -334,7 +377,7 @@ input {
 }
 input[type='email'], input[type='password'] {
   border: 0;
-  border-bottom: 1px solid var(--lGrey);
+  border-bottom: 2px solid var(--lGrey);
   width: 100%;
   padding: 5px;
   font-size: var(--font-size2);
@@ -361,6 +404,10 @@ button, input[type='submit'] {
   color: var(--white);
   font-size: var(--font-size2);
   box-shadow: var(--shadow);
+  cursor: pointer;
+}
+button, input[type='submit']:focus {
+  outline: none;
 }
 
 /* input states */
@@ -368,13 +415,13 @@ input:focus {
   outline: none;
 }
 input[type='email']:focus, input[type='password']:focus {
-  border-color: var(--dBlue);
-  border-width: 2px;
+  border-color: var(--lBlue);
 }
 button:hover, button:focus, input[type="submit"]:hover, input[type="submit"]:focus {
   background: var(--lBlue);
 }
-fieldset a:hover {
+fieldset a:hover, fieldset a:focus {
+  outline: none;
   color: var(--dGrey);
 }
 
@@ -547,12 +594,12 @@ body > header img {
 body > header div {
   padding: 2em 1em;
 }
-@media (max-width: 1400px) {
+@media (max-width: 87em) {
   body > header div h1 {
     font-size: var(--smaller1);
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 62em) {
   body > header {
     grid-template-columns: 1fr;
   }
@@ -708,5 +755,15 @@ nav + nav ol li:nth-child(4):after, nav + nav ol li:nth-child(3):after {
   100% {
     right: 0;
   }
-
+}
+@keyframes pop {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  10% {
+    transform: rotate(45deg) scale(1.5);
+  }
+  20% {
+    transform: rotate(45deg) scale(1);
+  }
 }
