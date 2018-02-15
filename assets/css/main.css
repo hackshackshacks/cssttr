@@ -337,19 +337,21 @@ body>div>div form ul li input[type="radio"]:checked+label {
 body>div>div form ul li label {
   text-decoration: none;
   color: black;
-  font-size: 4em;
   filter: brightness(.4);
   position: relative;
   transition: var(--baseTime);
+}
+body>div>div form ul li label img {
+  height: 5rem;
 }
 
 body>div>div form ul li label:before {
   content: '';
   position: absolute;
-  top: -1.1rem;
+  top: -5rem;
   left: 50%;
   transform: translatex(-50%);
-  font-size: 0.1875em;
+  font-size: 1em;
   font-weight: 700;
   color: var(--white);
   word-wrap: nowrap;
@@ -407,11 +409,12 @@ body>div>div form button {
     transform: translatex(-50%);
     grid-gap: 1em;
   }
-  body>div>div form ul li label {
-    font-size: 3em;
+  body>div>div form ul li label img {
+    height: 4rem;
   }
   body>div>div form ul li label:before {
-    font-size: 0.3em;
+    top: -4rem;
+    font-size: 0.8em;
   }
   body>div>div form button {
     margin: 0rem auto 0 50%;
