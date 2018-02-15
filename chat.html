@@ -6,20 +6,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
 
-  <title>Iets</title>
+  <title>Living styleguide</title>
 
   <link rel="stylesheet" href="assets/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,900" rel="stylesheet">
-
 </head>
 
 <body>
   <!-- Navigation -->
   <nav>
-    <a href="#hb">=</a>
+    <a href="#hb"></a>
     <a href="#content">Skip to content</a>
     <ul id="hb">
-      <a href="#"></a>
+      <a href="#"></a>
       <li>
         <a href="index.html">Login</a>
       </li>
@@ -30,7 +29,7 @@
         <a href="gallery.html">Gallery</a>
       </li>
       <li>
-          <a href="checkout.html">Checkout</a>
+        <a href="checkout.html">Checkout</a>
       </li>
     </ul>
   </nav>
@@ -47,19 +46,19 @@
           <p>
             Hi how are you?
           </p>
-            <img src="assets/images/hippo.jpeg" alt="img">
+          <img src="assets/images/hippo.jpeg" alt="img">
         </li>
         <li>
           <p>
             I’m good thanks, and you?
           </p>
-            <img src="assets/images/ryan.jpeg" alt="img">
+          <img src="assets/images/ryan.jpeg" alt="img">
         </li>
         <li>
           <p>
             I’m good thanks for asking. I was wondering if you wanted to join me and John for dinner tonight.
           </p>
-            <img src="assets/images/hippo.jpeg" alt="img">
+          <img src="assets/images/hippo.jpeg" alt="img">
         </li>
       </ol>
       <!-- form -->
@@ -69,7 +68,7 @@
           <label for="field-message">Message</label>
           <div>
             <textarea name="field-message" id="field-message" placeholder="Start typing.." rows="1" autofocus></textarea>
-            <a href="">😃</a>
+            <a href="chat.html"></a>
           </div>
           <button type="submit">Send</button>
 
@@ -79,15 +78,28 @@
     <div>
       <!-- chats -->
       <header>
-        <h2>Your chats</h2>
+        <h2>
+          <a href="#chats">Your chats</a>
+        </h2>
       </header>
       <nav>
-        <ol>
-            <li><a href="#">Victor Zumpolle</a></li>
-            <li><a href="#">Vienna Meijer</a></li>
-            <li><a href="#">Jelle Overbeek</a></li>
-            <li><a href="#">John Lennon</a></li>
-          </ol>
+        <ol id="chats">
+          <li>
+            <a href="chat.html"><span>Victor Zumpolle</span></a>
+          </li>
+          <li>
+            <a href="chat.html"><span>Vienna Meijer</span></a>
+          </li>
+          <li>
+            <a href="chat.html"><span>Jelle Overbeek</span></a>
+          </li>
+          <li>
+            <a href="chat.html"><span>John Lennon</span></a>
+          </li>
+          <li>
+            <a href="chat.html"><span>Neil Armstrong</span></a>
+          </li>
+        </ol>
       </nav>
     </div>
   </section>
@@ -123,7 +135,7 @@
             <label for="rating-4">🤩</label>
           </li>
         </ul>
-        <input type="submit">
+        <button type="submit">Submit</button>
       </form>
     </div>
   </div>
