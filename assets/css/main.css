@@ -516,7 +516,6 @@ fieldset div a {
 
 input[type="checkbox"] {
   position: absolute;
-  top: -999px;
   left: -999px;
 }
 
