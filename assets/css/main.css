@@ -451,7 +451,7 @@ label {
 
 @media (max-width: 81em) {
   .login+body nav+div {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 25em 1fr;
     max-width: 95%;
   }
@@ -463,6 +463,9 @@ label {
 @media (max-width: 37em) {
   .login+body nav+div {
     margin-top: 0;
+  }
+  .login+body section {
+    padding: 2em;
   }
 }
 
