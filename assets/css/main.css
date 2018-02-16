@@ -341,6 +341,7 @@ body>div>div form ul li label {
   position: relative;
   transition: var(--baseTime);
 }
+
 body>div>div form ul li label img {
   height: 5rem;
 }
@@ -447,6 +448,23 @@ label {
   align-content: end;
   padding: 4em;
   grid-row: span 2;
+  position: relative;
+}
+
+.login+body section:before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1em);
+  left: calc(50% - 1em);
+  width: 3rem;
+  height: 3rem;
+  background: url("../images/loader.png");
+  background-position: 0 0;
+  background-size: cover;
+  animation: loader 800ms infinite steps(6);
+  text-indent: 999px;
+  overflow: hidden;
+  z-index: -1;
 }
 
 @media (max-width: 81em) {
@@ -565,6 +583,7 @@ fieldset>a {
   margin-top: 1em;
   display: block;
 }
+
 fieldset p {
   border: 1px solid var(--slRed);
   color: var(--slRed);
@@ -578,13 +597,15 @@ fieldset p {
   transition: all var(--baseTime);
   font-size: 1em;
 }
-input[type="email"]:invalid ~ p:nth-of-type(1) {
+
+input[type="email"]:invalid~p:nth-of-type(1) {
   max-height: unset;
   margin-bottom: 1em;
   padding: 0.9em;
   opacity: 1;
 }
-input[type="password"]:invalid ~ p:nth-of-type(2) {
+
+input[type="password"]:invalid~p:nth-of-type(2) {
   max-height: unset;
   margin-bottom: 1em;
   padding: 0.9em;
@@ -654,6 +675,7 @@ input:invalid {
   transform: translatex(5px);
   box-shadow: -5px 0 var(--slRed);
 }
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -960,7 +982,7 @@ body>header div {
 
 /* Main */
 
-body > main {
+body>main {
   max-width: 80%;
   margin: 0 auto;
   display: grid;
@@ -968,6 +990,7 @@ body > main {
   grid-auto-rows: 250px;
   grid-gap: 1em;
 }
+
 body>main article {
   display: grid;
   grid-template-columns: 1;
@@ -1023,14 +1046,16 @@ body>main article a:after {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   z-index: -1;
 }
+
 @media (max-width: 62em) {
-  body > main {
+  body>main {
     max-width: 95%;
   }
-  body > main article a{
+  body>main article a {
     transform: translatey(0);
   }
 }
+
 /* Checkout */
 
 nav+nav {
@@ -1041,6 +1066,7 @@ nav+nav {
   max-width: 60%;
   margin: 0 auto;
 }
+
 nav+nav progress {
   width: 95%;
   -webkit-appearance: none;
@@ -1120,17 +1146,20 @@ nav+nav ol li:nth-child(4):after,
 nav+nav ol li:nth-child(3):after {
   border-color: var(--slBlue);
 }
+
 @media (max-width: 67em) {
   nav+nav {
     max-width: 95%;
     width: 100%;
   }
 }
+
 @media (max-width: 37em) {
   nav+nav progress {
     width: 88%;
   }
 }
+
 /* animations */
 
 @keyframes dropIn {
@@ -1166,5 +1195,11 @@ nav+nav ol li:nth-child(3):after {
   }
   20% {
     transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes loader {
+  to {
+    background-position: calc(-3rem * 6) 0;
   }
 }
