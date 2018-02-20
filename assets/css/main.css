@@ -83,6 +83,8 @@ body>nav {
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
+  z-index: 999;
+  background: var(--white);
 }
 
 body>nav ul {
@@ -102,6 +104,7 @@ body>nav ul li a {
   padding: 1.5em 1.5em;
   color: var(--dGrey);
   transition: 200ms;
+  white-space: nowrap;
 }
 
 body>nav ul li {
@@ -133,6 +136,21 @@ body>nav ul li a:hover {
 body>nav ul li[aria-active="active"] a {
   font-weight: 900;
   color: var(--dBlue);
+}
+/* submenu */
+body>nav ul li ul {
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  top: 4em;
+  left: 0;
+  z-index: 1;
+  background: var(--white);
+  transition: 600ms ease-in-out;
+  display: block;
+}
+body>nav ul li:focus-within ul, body>nav ul li:hover ul {
+  max-height: 100vh;
 }
 
 body>nav>a:nth-child(1),
@@ -1201,7 +1219,7 @@ nav+nav ol li:nth-child(3):after {
     transform: translateY(-100vh);
   }
   80% {
-    transform: translateY(5rem);
+    transform: translateY(2rem);
   }
   100% {
     transform: translateY(0);
