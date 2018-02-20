@@ -10,7 +10,7 @@
   --offBlue: #E5ECF2;
   --lGreen: #54DB00;
   --slGreen: #BDFFA0;
-  --slRed: #FFA0A0;
+  --slRed: rgb(255, 61, 61);
   --white: #fff;
   --offWhite: #F5F5F5;
   --font-size1: 3em;
@@ -22,7 +22,9 @@
   --baseTime: 300ms;
   --border-radius: 5px;
 }
-
+:focus {
+  animation: bounce var(--baseTime);
+}
 @font-face {
   font-family: Ampersand;
   src: url('../fonts/MuktaMahee-SemiBold.ttf');
@@ -79,6 +81,8 @@ body>nav {
   margin: 2em auto 0 auto;
   box-sizing: border-box;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 body>nav ul {
@@ -137,21 +141,16 @@ body>nav ul>a {
 }
 
 body>nav>a:nth-child(2) {
-  position: absolute;
   opacity: 0;
-  left: -999px;
-  top: -999px;
-  width: 4em;
+  margin: 0 2em 0 auto;
+  display: grid;
+  align-content: center;
   color: var(--dBlue);
   font-weight: 700;
   transition: opacity var(--baseTime);
 }
 
 body>nav>a:nth-child(2):focus {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -5em;
   opacity: 1;
   outline: none;
 }
@@ -160,15 +159,24 @@ body>nav>a:nth-child(2):focus {
   body>nav:first-of-type {
     margin: 0;
     padding: 1em;
-    width: 95%;
+    width: 100%;
+    grid-template-columns: 1fr auto;
   }
   body>nav>a:nth-child(1),
   body>nav ul>a {
-    display: block;
+    display: grid;
+    align-content: center;
     font-family: FontAwesome;
     font-size: 2em;
     text-decoration: none;
     color: var(--dGrey);
+    grid-column: 2 / -1;
+  }
+  body>nav ul>a {
+    grid-column: 1;
+  }
+  body>nav>a:nth-child(2) {
+    display: none;
   }
   body>nav ul {
     opacity: 0;
@@ -176,11 +184,22 @@ body>nav>a:nth-child(2):focus {
     pointer-events: none;
     z-index: 999;
     transition: opacity var(--baseTime);
+    position: relative;
+  }
+  body>nav ul li:focus-within {
+    background: var(--dBlue);
+    color: white;
+  }
+  body>nav ul li:focus-within a, body>nav ul li[aria-active]:focus-within a {
+    color: white;
   }
   body>nav ul li a,
   body>nav ul li[aria-active] a {
     color: var(--white);
     font-weight: 900;
+  }
+  body>nav ul li[aria-active] a {
+    color: var(--dBlue);
   }
   body>nav ul>a {
     position: absolute;
@@ -257,7 +276,7 @@ body>a {
   position: fixed;
   right: 0;
   top: 70%;
-  background: linear-gradient(45deg, var(--lBlue), var(--vdBlue));
+  background: var(--dBlue);
   padding: 1em 1.5em;
   border-radius: 10px 10px 0 0;
   transform: rotate(-90deg) translatey(-50%);
@@ -270,8 +289,9 @@ body>a {
 
 body>a:focus,
 body>a:hover {
+  animation: none;
   outline: none;
-  background: var(--dBlue);
+  background: var(--lBlue);
 }
 
 /* modal content */
@@ -399,6 +419,9 @@ body>div>div form button {
   transform: translate(-50%, 50%);
   width: auto;
   padding: 1em 2.5em;
+}
+body>div>div form button:focus {
+  animation: none;
 }
 
 @media (max-width: 37em) {
@@ -838,7 +861,9 @@ body>section>div footer a {
   text-decoration: none;
   font-family: FontAwesome;
 }
-
+body>section>div footer a:focus {
+  animation: none;
+}
 body>section>div footer button,
 body>section>div footer textarea {
   padding: 0.5em;
@@ -859,7 +884,7 @@ body>section>div a {
 }
 
 body>section>div:nth-child(2) ol li {
-  width: 95%;
+  width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
   max-width: unset;
@@ -868,17 +893,25 @@ body>section>div:nth-child(2) ol li {
   padding: 0;
   border-radius: 0;
 }
-
+body>section>div:nth-child(2) ol li:focus-within {
+  width: 100%;
+}
 body>section>div:nth-child(2) ol li a {
   height: 100%;
   width: 100%;
   display: block;
   padding: 1.5rem;
-}
-
-body>section>div:nth-child(2) ol li a {
   text-decoration: none;
   position: relative;
+  transition: var(--baseTime);
+}
+
+body>section>div:nth-child(2) ol li a:focus {
+  background: var(--dBlue);
+  outline: none;
+  color: white;
+  animation: none;
+  padding: 1.5rem 2.5rem;
 }
 
 body>section>div:nth-child(2) ol li a span {
@@ -1060,6 +1093,7 @@ body>main article a:after {
 
 nav+nav {
   display: grid;
+  grid-template-columns: 1fr;
   justify-items: center;
   box-shadow: none;
   background: transparent;
@@ -1201,5 +1235,16 @@ nav+nav ol li:nth-child(3):after {
 @keyframes loader {
   to {
     background-position: calc(-3rem * 6) 0;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
