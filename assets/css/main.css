@@ -829,10 +829,11 @@ body>section>div:nth-child(1) ol {
 }
 
 body>section>div:nth-child(1) ol li {
-  transform: translateY(-100vh);
+  transform: translateY(-6rem);
   animation: dropIn var(--baseTime) forwards;
   animation-timing-function: cubic-bezier(.17, .67, 1, 1.21);
   animation-delay: calc(var(--baseTime) * 3);
+  opacity: 0;
   margin: 0.5em 0;
 }
 
@@ -1262,13 +1263,12 @@ nav+nav ol li:nth-child(3):after {
 
 @keyframes dropIn {
   0% {
-    transform: translateY(-100vh);
-  }
-  80% {
-    transform: translateY(2rem);
+    transform: translateY(-3rem);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
