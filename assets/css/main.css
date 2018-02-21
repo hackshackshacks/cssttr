@@ -956,7 +956,7 @@ body>section>div:nth-child(2) ol li a {
   transition: var(--baseTime);
 }
 
-body>section>div:nth-child(2) ol li a:focus {
+body>section>div:nth-child(2) ol li a:focus, body>section>div:nth-child(2) ol li a:hover {
   background: var(--dBlue);
   outline: none;
   color: white;
