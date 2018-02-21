@@ -74,6 +74,29 @@ label {
   user-select: none;
 }
 
+/* page swap */
+body:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 997;
+  background: var(--white);
+  transition: opacity;
+  will-change: opacity;
+  animation: swipeOut 2s forwards;
+  pointer-events: none;
+}
+@keyframes swipeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 /* Nav styles */
 
 body>nav {
@@ -84,7 +107,7 @@ body>nav {
   display: grid;
   grid-template-columns: 1fr auto;
   z-index: 998;
-  background: var(--white);
+  /* background: var(--white); */
 }
 
 body>nav ul {
@@ -197,17 +220,19 @@ body>nav>a:nth-child(2):focus {
     display: none;
   }
   body>nav ul {
-    display: none;
+    position: fixed;
     opacity: 0;
     height: 0;
     pointer-events: none;
     z-index: 999;
     transition: opacity var(--baseTime);
-    position: relative;
   }
   body>nav ul li:focus-within {
     background: var(--dBlue);
     color: white;
+  }
+  body>nav ul li:after {
+    display: none;
   }
   body>nav ul li:focus-within a, body>nav ul li[aria-active]:focus-within a {
     color: white;
@@ -221,12 +246,16 @@ body>nav>a:nth-child(2):focus {
     color: var(--dBlue);
   }
   body>nav ul>a {
-    position: absolute;
-    top: 1em;
-    right: 1em;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
     color: var(--white);
     transform: rotate(45deg);
+    transition: var(--baseTime);
     cursor: pointer;
+  }
+  body>nav ul li ul {
+    display: none;
   }
   body>nav ul:target {
     position: fixed;
@@ -784,6 +813,7 @@ body>section>div header {
   grid-auto-flow: column;
   background: var(--white);
   padding: 0 1em;
+  z-index: 2;
 }
 
 /* left block */
@@ -980,6 +1010,19 @@ body>section>div:nth-child(2) ol li:nth-child(2) {
   body>section>div:nth-child(2) nav ol:target {
     max-height: 300px;
   }
+  body>section>div:nth-child(2) header {
+    padding: 0;
+  }
+  body>section>div:nth-child(2) h2 {
+    margin: 0;
+    grid-column: 1 / -1;
+  }
+  body>section>div:nth-child(2) h2 a {
+    padding: 1em;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 /* Gallery */
@@ -988,7 +1031,7 @@ body>section>div:nth-child(2) ol li:nth-child(2) {
 
 body>header {
   max-width: 80%;
-  margin: 2em auto;
+  margin: 1em auto 2em auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
