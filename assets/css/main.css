@@ -107,7 +107,6 @@ body>nav {
   display: grid;
   grid-template-columns: 1fr auto;
   z-index: 998;
-  /* background: var(--white); */
 }
 
 body>nav ul {
@@ -1047,7 +1046,7 @@ body>header figure figcaption {
 }
 
 body>header img {
-  width: 100%;
+  width: calc(100% - 0.5em);
 }
 
 body>header div {
