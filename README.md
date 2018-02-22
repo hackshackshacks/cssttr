@@ -4,32 +4,32 @@ This is my living styleguide. The goal of this project is to practice old and ne
 
 I have designed and created 4 pages: login, chat, gallery and checkout.
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/login_mob.png)
+![preview image](/assets/images/login_mob.png)
 Mobile login page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/login_desk.png)
+![preview image](/assets/images/login_desk.png)
 Desktop login page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/chat_mob.png)
+![preview image](/assets/images/chat_mob.png)
 Mobile chat page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/chat_desk.png)
+![preview image](/assets/images/chat_desk.png)
 Desktop chat page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/gallery_mob.png)
+![preview image](/assets/images/gallery_mob.png)
 Mobile gallery page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/gallery_desk.png)
+![preview image](/assets/images/gallery_desk.png)
 Desktop gallery page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/checkout_mob.png)
+![preview image](/assets/images/checkout_mob.png)
 Mobile checkout page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/checkout_desk.png)
+![preview image](/assets/images/checkout_desk.png)
 Desktop checkout page
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/modal.png)
+![preview image](/assets/images/modal.png)
 Modal component
 
-![preview image](https://hackshackshacks.github.io/cssttr/assets/images/hamburger_mob.png)
+![preview image](/assets/images/hamburger_mob.png)
 Mobile navigation
