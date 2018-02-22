@@ -324,6 +324,7 @@ body>a {
   text-decoration: none;
   font-weight: 700;
   animation: slideIn 2s forwards;
+  z-index: 2;
 }
 
 body>a:focus,
@@ -920,6 +921,7 @@ body>section img {
 body>section>div a {
   text-decoration: none;
   color: var(--dGrey);
+  z-index: 1;
 }
 
 body>section>div:nth-child(2) ol li {
