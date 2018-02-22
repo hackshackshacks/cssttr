@@ -20,6 +20,69 @@
   --baseTime: 300ms; /* Base transition time */
   --border-radius: 5px; /* Base border-radius */
 }
+
+/* Animations */
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    right: -100px;
+  }
+  90% {
+    right: -100px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  10% {
+    transform: rotate(45deg) scale(1.5);
+  }
+  20% {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes loader {
+  to {
+    background-position: calc(-3rem * 6) 0;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes swipeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Generic styles */
 :focus {
   animation: bounce var(--baseTime);
@@ -1190,6 +1253,11 @@ nav+nav a {
   font-weight: 600;
 }
 
+nav+nav a:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
 nav+nav ol li:before,
 nav+nav ol li:after {
   position: absolute;
@@ -1246,67 +1314,5 @@ nav+nav ol li:nth-child(3):after {
 @media (max-width: 37em) {
   nav+nav progress {
     width: 88%;
-  }
-}
-
-/* Animations */
-
-@keyframes dropIn {
-  0% {
-    transform: translateY(-3rem);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    right: -100px;
-  }
-  90% {
-    right: -100px;
-  }
-  100% {
-    right: 0;
-  }
-}
-
-@keyframes pop {
-  0% {
-    transform: rotate(45deg) scale(1);
-  }
-  10% {
-    transform: rotate(45deg) scale(1.5);
-  }
-  20% {
-    transform: rotate(45deg) scale(1);
-  }
-}
-
-@keyframes loader {
-  to {
-    background-position: calc(-3rem * 6) 0;
-  }
-}
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes swipeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
